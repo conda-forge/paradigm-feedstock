@@ -1,5 +1,5 @@
 {% set name = "paradigm" %}
-{% set version = "0.6.2" %}
+{% set version = "4.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/paradigm-{{ version }}.tar.gz
-  sha256: ffc058039895876faf8a6ceabea9780f506fe7bbeaef3bbaf754a5380f50f26d
+  sha256: 82f20034d67bbe4d3836986fb119b1d2163e25c653d5e2b1c3aeadc5492fc63f
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -22,7 +22,7 @@ requirements:
     - pip
   run:
     - python >=3.8
-    - mypy >=0.812,<1.0
+    - mypy <2.0,>=1.6.1
     - typing-extensions >=4.8.0,<5.0
     - memoir
     - reprit
