@@ -1,5 +1,6 @@
 {% set name = "paradigm" %}
 {% set version = "4.4.0" %}
+{% set python_min = "3.10" %}
 
 package:
   name: {{ name|lower }}
