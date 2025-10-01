@@ -1,5 +1,5 @@
 {% set name = "paradigm" %}
-{% set version = "4.4.0" %}
+{% set version = "4.4.1" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/paradigm-{{ version }}.tar.gz
-  sha256: c8d18b549c8f8828db30d4961dfdef31b697e0d74aac998a1160126e0a94c583
+  sha256: 7518747bd70ed09881a569474b468a3f1434944bc2a8c8936d3c1c43722335a8
 
 build:
   noarch: python
