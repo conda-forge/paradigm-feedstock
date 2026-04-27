@@ -1,0 +1,49 @@
+schema_version: 1
+
+context:
+  name: paradigm
+  version: "4.4.1"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/paradigm-${{ version }}.tar.gz
+  sha256: 7518747bd70ed09881a569474b468a3f1434944bc2a8c8936d3c1c43722335a8
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - setuptools
+    - wheel
+    - pip
+  run:
+    - typing_extensions >=4.14.1,<5.0
+    - python >=${{ python_min }}
+    - mypy >=1.17.0,<2.0
+    - typing-extensions >=4.8.0,<5.0
+    - memoir
+    - reprit
+
+tests:
+  - python:
+      imports:
+        - paradigm
+      pip_check: true
+      python_version: ${{ python_min }}
+
+about:
+  summary: Python objects metadata parser.
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/lycantropos/paradigm/
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
